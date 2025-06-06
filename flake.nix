@@ -54,6 +54,9 @@
           nixd
           nil
           rust-analyzer
+
+          alejandra
+          stylua
         ];
       };
 
@@ -67,7 +70,7 @@
           lualine-nvim
         ];
 
-        themer = with pkgs.vimPlugins; [ 
+        themer = with pkgs.vimPlugins; [
           onedark-nvim
           catppuccin-nvim
           catppuccin-nvim
@@ -80,8 +83,8 @@
           #   "catppuccin-mocha" = catppuccin-nvim;
           #   "tokyonight" = tokyonight-nvim;
           #   "tokyonight-day" = tokyonight-nvim;
-          # } 
-          ];
+          # }
+        ];
       };
 
       # Lazily loaded plugins
@@ -101,6 +104,9 @@
 
             flash-nvim
             mini-nvim
+
+            conform-nvim
+            gitsigns-nvim
           ];
 
           lsp = with pkgs.vimPlugins; [
@@ -145,7 +151,7 @@
     };
 
     packageDefinitions = {
-      nixCatsPkg = {
+      nixCats = {
         pkgs,
         name,
         ...
@@ -156,7 +162,7 @@
           suffix-path = true;
           suffix-LD = true;
           wrapRc = true;
-          aliases = ["nixCats"];
+          aliases = ["nvim" "vim" "vi"];
         };
         # and a set of categories that you want
         # (and other information to pass to lua)
@@ -204,7 +210,7 @@
         extra = {};
       };
     };
-    defaultPackageName = "nixCatsPkg";
+    defaultPackageName = "nixCats";
   in
     forEachSystem (system: let
       nixCatsBuilder =

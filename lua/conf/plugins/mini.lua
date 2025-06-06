@@ -27,7 +27,20 @@ return {
     -- Split and join arguments to functions
     require("mini.splitjoin").setup()
     -- Surround actions
-    require("mini.surround").setup()
+    require("mini.surround").setup({
+      mappings = {
+        add = 'gza', -- Add surrounding in Normal and Visual modes
+        delete = 'gzd', -- Delete surrounding
+        find = 'gzf', -- Find surrounding (to the right)
+        find_left = 'gzF', -- Find surrounding (to the left)
+        highlight = 'gzh', -- Highlight surrounding
+        replace = 'gzr', -- Replace surrounding
+        update_n_lines = 'gzn', -- Update `n_lines`
+
+        suffix_last = 'l', -- Suffix to search with "prev" method
+        suffix_next = 'n', -- Suffix to search with "next" method
+      },
+    })
     -- Basic settings
     require("mini.basics").setup({
       options = {
@@ -67,7 +80,7 @@ return {
       },
     })
     -- Icons for file types
-    require('mini.icons').setup()
+    -- require('mini.icons').setup()
     -- Scrollbar and text overview
     require("mini.map").setup({
       integrations = nil,
