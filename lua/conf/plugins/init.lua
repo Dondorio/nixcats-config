@@ -1,6 +1,6 @@
 local colorschemeName = nixCats("colorscheme")
 if not require("nixCatsUtils").isNixCats then
-  colorschemeName = "catppuccin"
+	colorschemeName = "catppuccin"
 end
 vim.cmd.colorscheme(colorschemeName)
 
@@ -8,19 +8,25 @@ require("conf.plugins.snacks")
 require("conf.plugins.oil")
 
 require("lze").load({
-  { import = "conf.plugins.treesitter" },
-  { import = "conf.plugins.which-key" },
+	{ import = "conf.plugins.treesitter" },
 
-  -- { import = "conf.plugins.snacks" },
-  { import = "conf.plugins.mini" },
-  { import = "conf.plugins.lualine" },
+	-- general utility
+	-- { import = "conf.plugins.snacks" },
+	{ import = "conf.plugins.mini" },
 
-  { import = "conf.plugins.lspconfig" },
-  { import = "conf.plugins.completion" },
-  { import = "conf.plugins.lazydev" },
+	-- ui
+	{ import = "conf.plugins.ui" },
+	{ import = "conf.plugins.ufo" },
 
-  { import = "conf.plugins.flash" },
+	{ import = "conf.plugins.lspconfig" },
+	{ import = "conf.plugins.completion" },
+	{ import = "conf.plugins.lazydev" },
+	{ import = "conf.plugins.lint" },
 
-  { import = "conf.plugins.conform" },
-  { import = "conf.plugins.gitsigns" },
+	{ import = "conf.plugins.flash" },
+
+	{ import = "conf.plugins.conform" },
+	{ import = "conf.plugins.gitsigns" },
+
+	{ import = "conf.plugins.rust" },
 })

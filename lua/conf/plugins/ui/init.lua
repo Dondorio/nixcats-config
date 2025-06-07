@@ -1,0 +1,5 @@
+return {
+	{ import = "conf.plugins.ui.which-key" },
+	{ import = "conf.plugins.ui.lualine" },
+	{ import = "conf.plugins.ui.bufferline" },
+}

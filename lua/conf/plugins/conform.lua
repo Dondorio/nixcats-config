@@ -4,12 +4,15 @@ return {
 		cat = "general",
 		default = true,
 	},
-	keys = {
-		-- Create a key mapping and lazy-load when it is used
-		{ "<leader>gf", mode = { "n", "x", "o" }, "<cmd>AutoFormatDisable<CR>", desc = "Disable auto formatting" },
-	},
+	-- keys = {
+	-- 	-- Create a key mapping and lazy-load when it is used
+	-- 	{ "<leader>gf", mode = { "n", "x", "o" }, "<cmd>AutoFormatDisable<CR>", desc = "Disable auto formatting" },
+	-- },
 	event = { "DeferredUIEnter" },
 	after = function(plugin)
+		vim.b.disable_autoformat = false
+		vim.g.disable_autoformat = false
+
 		require("conform").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },

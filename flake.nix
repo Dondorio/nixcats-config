@@ -1,5 +1,5 @@
 {
-  description = "A Lua-natic's neovim flake, with extra cats! nixCats!";
+  description = "My very cool nvim config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -41,23 +41,53 @@
 
     categoryDefinitions = {
       pkgs,
-      settings,
-      categories,
-      extra,
-      name,
-      mkPlugin,
+      # settings,
+      # categories,
+      # extra,
+      # name,
+      # mkPlugin,
       ...
     } @ packageDef: {
       lspsAndRuntimeDeps = {
-        lsp = with pkgs; [
-          lua-language-server
-          nixd
-          nil
-          rust-analyzer
-
-          alejandra
-          stylua
-        ];
+        lsp = {
+          langs = {
+            rust = with pkgs; [
+              rust-analyzer
+            ];
+            lua = with pkgs; [
+              lua-language-server
+            ];
+            nix = with pkgs; [
+              nil
+              nixd
+            ];
+          };
+        };
+        lint = {
+          langs = {
+            rust = with pkgs; [
+              clippy
+            ];
+            lua = with pkgs; [
+              lua54Packages.luacheck
+            ];
+            nix = with pkgs; [
+              deadnix
+              statix
+            ];
+          };
+        };
+        format = {
+          rust = with pkgs; [
+            rustfmt
+          ];
+          lua = with pkgs; [
+            stylua
+          ];
+          nix = with pkgs; [
+            alejandra
+          ];
+        };
       };
 
       startupPlugins = {
@@ -76,37 +106,36 @@
           catppuccin-nvim
           tokyonight-nvim
           tokyonight-nvim
-          # builtins.getAttr (categories.colorscheme or "onedark") {
-          #   # Theme switcher without creating a new category
-          #   "onedark" = onedark-nvim;
-          #   "catppuccin" = catppuccin-nvim;
-          #   "catppuccin-mocha" = catppuccin-nvim;
-          #   "tokyonight" = tokyonight-nvim;
-          #   "tokyonight-day" = tokyonight-nvim;
-          # }
         ];
       };
 
       # Lazily loaded plugins
       optionalPlugins = {
-        gitPlugins = with pkgs.neovimPlugins; [];
         general = {
           always = with pkgs.vimPlugins; [
-            which-key-nvim
-            luasnip
+            blink-cmp
+            blink-cmp-spell
+            blink-compat
+            blink-emoji-nvim
+            blink-ripgrep-nvim
             friendly-snippets
             lazydev-nvim
-            blink-cmp
-            blink-compat
-            blink-cmp-spell
-            blink-ripgrep-nvim
-            blink-emoji-nvim
+            luasnip
 
             flash-nvim
             mini-nvim
 
+            which-key-nvim
             conform-nvim
             gitsigns-nvim
+            # harpoon2-nvim
+            rustaceanvim
+            bufferline-nvim
+            nvim-ufo
+          ];
+
+          lint = with pkgs.vimPlugins; [
+            nvim-lint
           ];
 
           lsp = with pkgs.vimPlugins; [
@@ -116,15 +145,16 @@
           treesitter = with pkgs.vimPlugins; [
             nvim-treesitter-textobjects
             nvim-treesitter.withAllGrammars
+            nvim-treesitter-context
           ];
         };
       };
 
-      sharedLibraries = {
-        general = with pkgs; [
-          # libgit2
-        ];
-      };
+      # sharedLibraries = {
+      #   general = with pkgs; [
+      #     # libgit2
+      #   ];
+      # };
 
       environmentVariables = {
         # test = {
@@ -156,34 +186,36 @@
         name,
         ...
       }: {
-        # they contain a settings set defined above
-        # see :help nixCats.flake.outputs.settings
         settings = {
           suffix-path = true;
           suffix-LD = true;
           wrapRc = true;
           aliases = ["nvim" "vim" "vi"];
         };
-        # and a set of categories that you want
-        # (and other information to pass to lua)
+
         categories = {
           general = true;
           gitPlugins = true;
           customPlugins = true;
 
+          langs = {
+            lua = true;
+            nix = true;
+            rust = true;
+
+            # TODO
+            c = true;
+            cpp = true;
+            go = true;
+            markdown = true;
+          };
+
+          format = true;
+          lint = true;
           lsp = true;
+
           themer = true;
           colorscheme = "catppuccin";
-          # test = true;
-          # example = {
-          #   youCan = "add more than just booleans";
-          #   toThisSet = [
-          #     "and the contents of this categories set"
-          #     "will be accessible to your lua with"
-          #     "nixCats('path.to.value')"
-          #     "see :help nixCats"
-          #   ];
-          # };
         };
       };
 
@@ -200,10 +232,22 @@
         };
         categories = {
           general = true;
-          gitPlugins = true;
-          customPlugins = true;
 
+          langs = {
+            lua = true;
+            nix = true;
+            rust = true;
+
+            c = true;
+            cpp = true;
+            go = true;
+            markdown = true;
+          };
+
+          format = true;
+          lint = true;
           lsp = true;
+
           themer = true;
           colorscheme = "catppuccin";
         };
@@ -220,15 +264,8 @@
         categoryDefinitions
         packageDefinitions;
       defaultPackage = nixCatsBuilder defaultPackageName;
-      # this is just for using utils such as pkgs.mkShell
-      # The one used to build neovim is resolved inside the builder
-      # and is passed to our categoryDefinitions and packageDefinitions
       pkgs = import nixpkgs {inherit system;};
     in {
-      # these outputs will be wrapped with ${system} by utils.eachSystem
-
-      # this will make a package out of each of the packageDefinitions defined above
-      # and set the default package to the one passed in here.
       packages = utils.mkAllWithDefault defaultPackage;
 
       devShells = {
