@@ -122,16 +122,19 @@
             lazydev-nvim
             luasnip
 
-            flash-nvim
             mini-nvim
 
+            flash-nvim
+            harpoon2
+
             which-key-nvim
-            conform-nvim
             gitsigns-nvim
-            # harpoon2-nvim
-            rustaceanvim
             bufferline-nvim
+            noice-nvim
+
+            conform-nvim
             nvim-ufo
+            rustaceanvim
           ];
 
           lint = with pkgs.vimPlugins; [

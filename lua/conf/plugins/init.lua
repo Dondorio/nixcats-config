@@ -14,8 +14,8 @@ require("lze").load({
 	-- { import = "conf.plugins.snacks" },
 	{ import = "conf.plugins.mini" },
 
-	-- ui
 	{ import = "conf.plugins.ui" },
+
 	{ import = "conf.plugins.ufo" },
 
 	{ import = "conf.plugins.lspconfig" },
@@ -24,6 +24,7 @@ require("lze").load({
 	{ import = "conf.plugins.lint" },
 
 	{ import = "conf.plugins.flash" },
+	{ import = "conf.plugins.harpoon" },
 
 	{ import = "conf.plugins.conform" },
 	{ import = "conf.plugins.gitsigns" },
