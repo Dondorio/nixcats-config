@@ -49,6 +49,11 @@
       ...
     } @ packageDef: {
       lspsAndRuntimeDeps = {
+        always = with pkgs; [
+          ripgrep
+          lazygit
+        ];
+
         lsp = {
           langs = {
             rust = with pkgs; [
@@ -113,6 +118,10 @@
       optionalPlugins = {
         general = {
           always = with pkgs.vimPlugins; [
+            # General utility
+            mini-nvim
+
+            # Completion
             blink-cmp
             blink-cmp-spell
             blink-compat
@@ -122,17 +131,16 @@
             lazydev-nvim
             luasnip
 
-            mini-nvim
-
+            # Navigation
             flash-nvim
             harpoon2
 
-            which-key-nvim
-            gitsigns-nvim
+            # Ui
             bufferline-nvim
+            gitsigns-nvim
             noice-nvim
+            which-key-nvim
 
-            conform-nvim
             nvim-ufo
             rustaceanvim
           ];
@@ -143,6 +151,10 @@
 
           lsp = with pkgs.vimPlugins; [
             nvim-lspconfig
+          ];
+
+          format = with pkgs.vimPlugins; [
+            conform-nvim
           ];
 
           treesitter = with pkgs.vimPlugins; [

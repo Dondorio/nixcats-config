@@ -1,7 +1,7 @@
 return {
 	"conform.nvim",
 	for_cat = {
-		cat = "general",
+		cat = "format",
 		default = true,
 	},
 	-- keys = {

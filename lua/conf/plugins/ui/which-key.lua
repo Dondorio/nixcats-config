@@ -3,7 +3,7 @@ return {
 		"which-key.nvim",
 		for_cat = "general",
 		event = "DeferredUIEnter",
-		after = function(plugin)
+		after = function()
 			require("which-key").setup({})
 			require("which-key").add({
 				{ "<leader>b", group = "[b]uffer" },
@@ -12,6 +12,8 @@ return {
 				{ "<leader>c_", hidden = true },
 				{ "<leader>d", group = "[d]ocument" },
 				{ "<leader>d_", hidden = true },
+				{ "<leader>f", group = "[f]ind" },
+				{ "<leader>f_", hidden = true },
 				{ "<leader>g", group = "[g]it" },
 				{ "<leader>g_", hidden = true },
 				{ "<leader>m", group = "[m]arkdown" },
@@ -26,6 +28,8 @@ return {
 				{ "<leader>w_", hidden = true },
 				{ "<leader>l", group = "[l]sp" },
 				{ "<leader>l_", hidden = true },
+				{ "<leader>x", group = "trouble" },
+				{ "<leader>x_", hidden = true },
 			})
 		end,
 	},

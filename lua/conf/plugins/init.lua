@@ -10,24 +10,28 @@ require("conf.plugins.oil")
 require("lze").load({
 	{ import = "conf.plugins.treesitter" },
 
-	-- general utility
+	-- General utility
 	-- { import = "conf.plugins.snacks" },
 	{ import = "conf.plugins.mini" },
 
+	{ import = "conf.plugins.trouble" },
+	{ import = "conf.plugins.ufo" },
 	{ import = "conf.plugins.ui" },
 
-	{ import = "conf.plugins.ufo" },
-
-	{ import = "conf.plugins.lspconfig" },
+	-- Lsp, lint, format, completion
 	{ import = "conf.plugins.completion" },
+	{ import = "conf.plugins.conform" },
 	{ import = "conf.plugins.lazydev" },
 	{ import = "conf.plugins.lint" },
+	{ import = "conf.plugins.lspconfig" },
 
+	-- Navigation
 	{ import = "conf.plugins.flash" },
 	{ import = "conf.plugins.harpoon" },
 
-	{ import = "conf.plugins.conform" },
+	-- Git
 	{ import = "conf.plugins.gitsigns" },
 
+	-- Lang
 	{ import = "conf.plugins.rust" },
 })
