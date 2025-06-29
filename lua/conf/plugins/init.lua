@@ -14,13 +14,15 @@ require("lze").load({
 	-- { import = "conf.plugins.snacks" },
 	{ import = "conf.plugins.mini" },
 
+	{ import = "conf.plugins.markdown" },
 	{ import = "conf.plugins.trouble" },
 	{ import = "conf.plugins.ufo" },
 	{ import = "conf.plugins.ui" },
 
-	-- Lsp, lint, format, completion
+	-- Lsp, lint, format, completion, debug
 	{ import = "conf.plugins.completion" },
 	{ import = "conf.plugins.conform" },
+	{ import = "conf.plugins.debug" },
 	{ import = "conf.plugins.lazydev" },
 	{ import = "conf.plugins.lint" },
 	{ import = "conf.plugins.lspconfig" },
@@ -33,5 +35,5 @@ require("lze").load({
 	{ import = "conf.plugins.gitsigns" },
 
 	-- Lang
-	{ import = "conf.plugins.rust" },
+	-- { import = "conf.plugins.rust" },
 })

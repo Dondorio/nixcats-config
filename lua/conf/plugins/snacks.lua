@@ -1,7 +1,7 @@
 require("snacks").setup({
 	animate = {},
 	bigfile = {},
-	dashboard = {},
+	-- dashboard = {},
 	explorer = {},
 	gitbrowse = {},
 	image = {},
@@ -67,12 +67,12 @@ end, { desc = "Find Git Files" })
 vim.keymap.set("n", "<leader>fG", function()
 	Snacks.picker.git_files()
 end, { desc = "Find Git Files" })
-vim.keymap.set("n", "<leader>gl", function()
-	Snacks.lazygit.open()
-end, { desc = "Open lazygit" })
-vim.keymap.set("n", "<leader>gL", function()
-	Snacks.lazygit.log()
-end, { desc = "Open lazygit log" })
+-- vim.keymap.set("n", "<leader>gg", function()
+-- 	Snacks.terminal({ "gitui" })
+-- end, { desc = "Open gitui" })
+-- vim.keymap.set("n", "<leader>gG", function()
+-- 	Snacks.terminal({ "gitui" }, { cwd = Snacks.git.get_root() })
+-- end, { desc = "Open gitui in git root" })
 
 vim.keymap.set("n", "<leader>uC", function()
 	Snacks.picker.colorschemes()

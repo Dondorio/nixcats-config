@@ -18,7 +18,7 @@ vim.opt.undofile = true
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
--- vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "yes"
 
 vim.opt.colorcolumn = "80"
 
@@ -30,6 +30,6 @@ vim.lsp.inlay_hint.enable(true)
 
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("nil_ls")
-vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("jdtls")
 
 require("conf.plugins")

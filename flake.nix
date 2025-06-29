@@ -49,9 +49,9 @@
       ...
     } @ packageDef: {
       lspsAndRuntimeDeps = {
-        always = with pkgs; [
+        general = with pkgs; [
           ripgrep
-          lazygit
+          vscode-extensions.vadimcn.vscode-lldb.adapter
         ];
 
         lsp = {
@@ -59,36 +59,52 @@
             rust = with pkgs; [
               rust-analyzer
             ];
+
             lua = with pkgs; [
               lua-language-server
             ];
+
             nix = with pkgs; [
               nil
               nixd
             ];
+
+            java = with pkgs; [
+              jdt-language-server
+            ];
           };
         };
+
         lint = {
           langs = {
             rust = with pkgs; [
               clippy
             ];
+
             lua = with pkgs; [
               lua54Packages.luacheck
             ];
+
             nix = with pkgs; [
               deadnix
               statix
             ];
           };
         };
+
         format = {
+          always = with pkgs; [
+            prettierd
+          ];
+
           rust = with pkgs; [
             rustfmt
           ];
+
           lua = with pkgs; [
             stylua
           ];
+
           nix = with pkgs; [
             alejandra
           ];
@@ -100,12 +116,19 @@
           lze
           lzextras
 
-          snacks-nvim
-          oil-nvim
           lualine-nvim
+          nvim-nio
+          oil-nvim
+          snacks-nvim
         ];
 
-        themer = with pkgs.vimPlugins; [
+        langs = {
+          rust = with pkgs.vimPlugins; [
+            rustaceanvim
+          ];
+        };
+
+        themes = with pkgs.vimPlugins; [
           onedark-nvim
           catppuccin-nvim
           catppuccin-nvim
@@ -139,10 +162,17 @@
             bufferline-nvim
             gitsigns-nvim
             noice-nvim
+            render-markdown-nvim
+            trouble-nvim
             which-key-nvim
 
             nvim-ufo
-            rustaceanvim
+          ];
+
+          debug = with pkgs.vimPlugins; [
+            nvim-dap
+            nvim-dap-ui
+            nvim-dap-virtual-text
           ];
 
           lint = with pkgs.vimPlugins; [
@@ -163,35 +193,6 @@
             nvim-treesitter-context
           ];
         };
-      };
-
-      # sharedLibraries = {
-      #   general = with pkgs; [
-      #     # libgit2
-      #   ];
-      # };
-
-      environmentVariables = {
-        # test = {
-        #   CATTESTVAR = "It worked!";
-        # };
-      };
-
-      # If you know what these are, you can provide custom ones by category here.
-      # If you dont, check this link out:
-      # https://github.com/NixOS/nixpkgs/blob/master/pkgs/build-support/setup-hooks/make-wrapper.sh
-      extraWrapperArgs = {
-        test = [
-          ''--set CATTESTVAR2 "It worked again!"''
-        ];
-      };
-
-      python3.libraries = {
-        test = _: [];
-      };
-      # populates $LUA_PATH and $LUA_CPATH
-      extraLuaPackages = {
-        test = [(_: [])];
       };
     };
 
@@ -218,6 +219,8 @@
             nix = true;
             rust = true;
 
+            java = false;
+
             # TODO
             c = true;
             cpp = true;
@@ -225,11 +228,12 @@
             markdown = true;
           };
 
+          debug = true;
           format = true;
           lint = true;
           lsp = true;
 
-          themer = true;
+          themes = true;
           colorscheme = "catppuccin";
         };
       };
@@ -243,7 +247,7 @@
           suffix-path = true;
           suffix-LD = true;
           wrapRc = false;
-          unwrappedCfgPath = utils.mkLuaInline "os.getenv('HOME') .. '/nix/modules/nixcats/'";
+          unwrappedCfgPath = builtins.toString luaPath;
         };
         categories = {
           general = true;
@@ -253,17 +257,21 @@
             nix = true;
             rust = true;
 
+            java = false;
+
             c = true;
             cpp = true;
             go = true;
             markdown = true;
           };
 
+          debug = true;
           format = true;
           lint = true;
           lsp = true;
 
-          themer = true;
+          themes = true;
+
           colorscheme = "catppuccin";
         };
         extra = {};

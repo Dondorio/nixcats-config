@@ -4,7 +4,7 @@ return {
 	after = function()
 		require("lint").linters_by_ft = {
 			markdown = { "vale" },
-			rust = { "clippy" },
+			-- rust = { "clippy" },
 			nix = { "statix", "deadnix" },
 			lua = { "luacheck" },
 		}
