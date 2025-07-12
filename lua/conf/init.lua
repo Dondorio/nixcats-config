@@ -30,6 +30,8 @@ vim.lsp.inlay_hint.enable(true)
 
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("nil_ls")
+
+vim.lsp.enable("gopls")
 vim.lsp.enable("jdtls")
 
 require("conf.plugins")

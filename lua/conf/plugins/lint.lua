@@ -3,10 +3,11 @@ return {
 	for_cat = { cat = "general", default = true },
 	after = function()
 		require("lint").linters_by_ft = {
-			markdown = { "vale" },
-			-- rust = { "clippy" },
-			nix = { "statix", "deadnix" },
 			lua = { "luacheck" },
+			nix = { "statix", "deadnix" },
+
+			go = { "golangcilint" },
+			markdown = { "vale" },
 		}
 
 		vim.api.nvim_create_autocmd({ "BufWritePost" }, {

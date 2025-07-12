@@ -26,8 +26,7 @@ return {
 		event = { "InsertEnter" },
 		on_require = { "blink" },
 		after = function()
-			local bl = require("blink.cmp")
-			bl.setup({
+			require("blink.cmp").setup({
 				completion = {
 					accept = {
 						auto_brackets = {
@@ -37,19 +36,47 @@ return {
 
 					menu = {
 						-- auto_show = true,
+						border = "rounded",
+
 						draw = {
 							treesitter = { "lsp" },
+
+							components = {
+								kind_icon = {
+									text = function(ctx)
+										local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+										return kind_icon
+									end,
+									-- (optional) use highlights from mini.icons
+									highlight = function(ctx)
+										local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+										return hl
+									end,
+								},
+								kind = {
+									-- (optional) use highlights from mini.icons
+									highlight = function(ctx)
+										local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+										return hl
+									end,
+								},
+							},
 						},
 					},
 
 					documentation = {
 						auto_show = true,
 						auto_show_delay_ms = 200,
+						window = { border = "rounded" },
 					},
 
 					ghost_text = {
 						enabled = true,
 					},
+				},
+
+				signature = {
+					enabled = true,
 				},
 
 				keymap = {
@@ -60,7 +87,7 @@ return {
 				},
 
 				sources = {
-					default = function(ctx)
+					default = function()
 						local sourceList = {
 							"lsp",
 							"path",
@@ -116,8 +143,6 @@ return {
 				snippets = {
 					preset = "luasnip",
 				},
-
-				signature = { enabled = true },
 			})
 		end,
 	},

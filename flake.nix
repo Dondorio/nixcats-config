@@ -39,27 +39,16 @@
         # )
       ];
 
-    categoryDefinitions = {
-      pkgs,
-      # settings,
-      # categories,
-      # extra,
-      # name,
-      # mkPlugin,
-      ...
-    } @ packageDef: {
+    categoryDefinitions = {pkgs, ...} @ packageDef: {
       lspsAndRuntimeDeps = {
         general = with pkgs; [
+          codespell
           ripgrep
           vscode-extensions.vadimcn.vscode-lldb.adapter
         ];
 
         lsp = {
           langs = {
-            rust = with pkgs; [
-              rust-analyzer
-            ];
-
             lua = with pkgs; [
               lua-language-server
             ];
@@ -67,6 +56,20 @@
             nix = with pkgs; [
               nil
               nixd
+            ];
+
+            rust = with pkgs; [
+              rust-analyzer
+            ];
+
+            cpp = with pkgs; [
+              # clangd
+            ];
+
+            # Extra
+
+            go = with pkgs; [
+              gopls
             ];
 
             java = with pkgs; [
@@ -77,10 +80,6 @@
 
         lint = {
           langs = {
-            rust = with pkgs; [
-              clippy
-            ];
-
             lua = with pkgs; [
               lua54Packages.luacheck
             ];
@@ -88,6 +87,16 @@
             nix = with pkgs; [
               deadnix
               statix
+            ];
+
+            rust = with pkgs; [
+              clippy
+            ];
+
+            # Extra
+
+            go = with pkgs; [
+              golangci-lint
             ];
           };
         };
@@ -97,16 +106,23 @@
             prettierd
           ];
 
-          rust = with pkgs; [
-            rustfmt
-          ];
-
           lua = with pkgs; [
             stylua
           ];
 
           nix = with pkgs; [
             alejandra
+          ];
+
+          rust = with pkgs; [
+            rustfmt
+          ];
+
+          # Extra
+
+          go = with pkgs; [
+            go-tools
+            gotools
           ];
         };
       };
@@ -116,6 +132,7 @@
           lze
           lzextras
 
+          yuck-vim
           lualine-nvim
           nvim-nio
           oil-nvim
@@ -247,7 +264,12 @@
           suffix-path = true;
           suffix-LD = true;
           wrapRc = false;
-          unwrappedCfgPath = builtins.toString luaPath;
+          # Due to flakes not letting you get the flake's local directory this
+          # is used as a workaround. Run nix ``shell .#testnvim`` inside of the
+          # nixcats folder to get wrapRc working. With this you can also run
+          # other configurations just by running ``testnvim`` inside of another
+          # config
+          unwrappedCfgPath = utils.mkLuaInline "os.getenv('PWD')";
         };
         categories = {
           general = true;

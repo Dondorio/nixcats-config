@@ -38,7 +38,12 @@ return {
 			},
 		},
 		after = function()
-			require("trouble").setup()
+			require("trouble").setup({
+				win = {
+					position = "right",
+					size = 50,
+				},
+			})
 		end,
 	},
 }

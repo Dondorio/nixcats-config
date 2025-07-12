@@ -19,7 +19,11 @@ return {
 				nix = { "alejandra" },
 
 				rust = { "rustfmt" },
-				go = { "goimports", "gofmt" },
+				go = { "golangci-lint" },
+
+				scss = { "prettierd" },
+				bash = { "prettierd" },
+				yuck = { "" },
 				-- Use the "*" filetype to run formatters on all filetypes.
 				["*"] = { "codespell" },
 				-- Use the "_" filetype to run formatters on filetypes that don't
