@@ -43,6 +43,7 @@
       lspsAndRuntimeDeps = {
         general = with pkgs; [
           codespell
+          kdlfmt
           ripgrep
           vscode-extensions.vadimcn.vscode-lldb.adapter
         ];
@@ -146,10 +147,15 @@
         };
 
         themes = with pkgs.vimPlugins; [
+          catppuccin-nvim
+          gruvbox
+          gruvbox-material
+          kanagawa-nvim
+          kanagawa-paper-nvim
           onedark-nvim
-          catppuccin-nvim
-          catppuccin-nvim
-          tokyonight-nvim
+          rose-pine
+          sonokai
+          sonokai
           tokyonight-nvim
         ];
       };

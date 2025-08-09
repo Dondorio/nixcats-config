@@ -120,6 +120,7 @@ return {
 									"flake.lock",
 									"uv.lock",
 								},
+								score_offset = -100,
 							},
 						},
 
