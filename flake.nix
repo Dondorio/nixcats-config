@@ -138,6 +138,7 @@
           nvim-nio
           oil-nvim
           snacks-nvim
+          undotree
         ];
 
         langs = {
@@ -171,8 +172,6 @@
             blink-cmp
             blink-cmp-spell
             blink-compat
-            blink-emoji-nvim
-            blink-ripgrep-nvim
             friendly-snippets
             lazydev-nvim
             luasnip

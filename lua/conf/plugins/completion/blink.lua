@@ -1,15 +1,4 @@
 return {
-	-- Completion engines
-	{
-		"blink-ripgrep.nvim",
-		for_cat = { cat = "general", default = true },
-		on_plugin = { "blink.cmp" },
-	},
-	{
-		"blink-emoji.nvim",
-		for_cat = { cat = "general", default = true },
-		on_plugin = { "blink.cmp" },
-	},
 	{
 		"blink-cmp-spell",
 		for_cat = { cat = "general", default = true },
@@ -93,8 +82,6 @@ return {
 							"path",
 							"snippets",
 							"buffer",
-							"ripgrep",
-							"emoji",
 						}
 
 						if vim.bo.filetype == "lua" then
@@ -107,36 +94,9 @@ return {
 						path = {
 							async = true,
 						},
-
-						ripgrep = {
-							module = "blink-ripgrep",
-							name = "Ripgrep",
-							opts = {
-								prefix_min_len = 3,
-								context_size = 4,
-								max_filesize = "1M",
-								project_root_marker = {
-									".git",
-									"flake.lock",
-									"uv.lock",
-								},
-								score_offset = -100,
-							},
-						},
-
-						emoji = {
-							module = "blink-emoji",
-							name = "Emoji",
-							score_offset = 15,
-							opts = {
-								insert = true,
-							},
-						},
-
 						lazydev = {
 							name = "LazyDev",
 							module = "lazydev.integrations.blink",
-							score_offset = 100,
 						},
 					},
 				},
