@@ -36,4 +36,5 @@ require("lze").load({
 
 	-- Lang
 	-- { import = "conf.plugins.rust" },
+	{ import = "conf.plugins.clangd-extensions" },
 })

@@ -42,10 +42,10 @@
     categoryDefinitions = {pkgs, ...} @ packageDef: {
       lspsAndRuntimeDeps = {
         general = with pkgs; [
-          codespell
           kdlfmt
           ripgrep
-          vscode-extensions.vadimcn.vscode-lldb.adapter
+          # vscode-extensions.vadimcn.vscode-lldb.adapter
+          lldb
         ];
 
         lsp = {
@@ -64,17 +64,11 @@
             ];
 
             cpp = with pkgs; [
-              # clangd
+              clang-tools
             ];
-
-            # Extra
 
             go = with pkgs; [
               gopls
-            ];
-
-            java = with pkgs; [
-              jdt-language-server
             ];
           };
         };
@@ -93,8 +87,6 @@
             rust = with pkgs; [
               clippy
             ];
-
-            # Extra
 
             go = with pkgs; [
               golangci-lint
@@ -119,8 +111,6 @@
             rustfmt
           ];
 
-          # Extra
-
           go = with pkgs; [
             go-tools
             gotools
@@ -133,17 +123,22 @@
           lze
           lzextras
 
-          yuck-vim
+          friendly-snippets
           lualine-nvim
           nvim-nio
           oil-nvim
           snacks-nvim
+          tiny-inline-diagnostic-nvim
           undotree
         ];
 
         langs = {
           rust = with pkgs.vimPlugins; [
             rustaceanvim
+          ];
+
+          cpp = with pkgs.vimPlugins; [
+            clangd_extensions-nvim
           ];
         };
 
@@ -173,7 +168,6 @@
             blink-cmp-spell
             blink-compat
             friendly-snippets
-            lazydev-nvim
             luasnip
 
             # Navigation
@@ -184,6 +178,7 @@
             bufferline-nvim
             gitsigns-nvim
             noice-nvim
+            nvim-biscuits
             render-markdown-nvim
             trouble-nvim
             which-key-nvim
@@ -202,6 +197,7 @@
           ];
 
           lsp = with pkgs.vimPlugins; [
+            lazydev-nvim
             nvim-lspconfig
           ];
 
@@ -256,7 +252,7 @@
           lsp = true;
 
           themes = true;
-          colorscheme = "catppuccin";
+          colorscheme = "kanagawa";
         };
       };
 

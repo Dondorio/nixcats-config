@@ -9,7 +9,7 @@ return {
 	-- 	{ "<leader>gf", mode = { "n", "x", "o" }, "<cmd>AutoFormatDisable<CR>", desc = "Disable auto formatting" },
 	-- },
 	event = { "DeferredUIEnter" },
-	after = function(plugin)
+	after = function()
 		vim.b.disable_autoformat = false
 		vim.g.disable_autoformat = false
 
@@ -18,17 +18,22 @@ return {
 				lua = { "stylua" },
 				nix = { "alejandra" },
 
-				rust = { "rustfmt" },
+				c = { "clang-format" },
+				cpp = { "clang-format" },
 				go = { "golangci-lint" },
+				rust = { "rustfmt" },
 
-				scss = { "prettierd" },
+				-- Extra
 				bash = { "prettierd" },
+				scss = { "prettierd" },
 				yuck = { "" },
 
+				-- Document
+				-- TODO markdown and toml formatters
 				kdl = { "kdlfmt" },
 
 				-- Use the "*" filetype to run formatters on all filetypes.
-				["*"] = { "codespell" },
+				-- ["*"] = { "codespell" },
 				-- Use the "_" filetype to run formatters on filetypes that don't
 				-- have other formatters configured.
 				["_"] = { "trim_whitespace" },
