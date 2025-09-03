@@ -10,6 +10,8 @@ return {
 			cpp = { "clangtidy" },
 			go = { "golangcilint" },
 
+			elixir = { "credo" },
+
 			-- Extra
 			markdown = { "vale" },
 		}

@@ -23,6 +23,9 @@ return {
 				go = { "golangci-lint" },
 				rust = { "rustfmt" },
 
+				-- BEAM
+				elixir = { "mix" },
+
 				-- Extra
 				bash = { "prettierd" },
 				scss = { "prettierd" },
@@ -47,7 +50,7 @@ return {
 			end,
 		})
 
-		vim.api.nvim_create_user_command("AutoFormatDisable", function(args)
+		vim.api.nvim_create_user_command("FormatDisable", function(args)
 			if args.bang then
 				-- FormatDisable! will disable formatting just for this buffer
 				vim.b.disable_autoformat = true

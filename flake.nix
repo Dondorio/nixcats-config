@@ -39,12 +39,12 @@
         # )
       ];
 
-    categoryDefinitions = {pkgs, ...} @ packageDef: {
+    categoryDefinitions = {pkgs, ...}: {
       lspsAndRuntimeDeps = {
         general = with pkgs; [
           kdlfmt
           ripgrep
-          # vscode-extensions.vadimcn.vscode-lldb.adapter
+          vscode-extensions.vadimcn.vscode-lldb.adapter
           lldb
         ];
 
@@ -69,6 +69,11 @@
 
             go = with pkgs; [
               gopls
+            ];
+
+            # BEAM
+            elixir = with pkgs; [
+              elixir-ls
             ];
           };
         };
@@ -215,11 +220,7 @@
     };
 
     packageDefinitions = {
-      nixCats = {
-        pkgs,
-        name,
-        ...
-      }: {
+      nixCats = {...}: {
         settings = {
           suffix-path = true;
           suffix-LD = true;
@@ -243,6 +244,9 @@
             c = true;
             cpp = true;
             go = true;
+
+            elixir = true;
+
             markdown = true;
           };
 
@@ -256,11 +260,7 @@
         };
       };
 
-      testnvim = {
-        pkgs,
-        name,
-        ...
-      }: {
+      testnvim = {...}: {
         settings = {
           suffix-path = true;
           suffix-LD = true;
@@ -285,6 +285,9 @@
             c = true;
             cpp = true;
             go = true;
+
+            elixir = true;
+
             markdown = true;
           };
 
