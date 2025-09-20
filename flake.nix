@@ -71,7 +71,6 @@
               gopls
             ];
 
-            # BEAM
             elixir = with pkgs; [
               elixir-ls
             ];
