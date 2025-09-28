@@ -25,6 +25,7 @@ return {
 
 				-- BEAM
 				elixir = { "mix" },
+				gleam = { "gleam" },
 
 				-- Extra
 				bash = { "prettierd" },

@@ -74,6 +74,10 @@
             elixir = with pkgs; [
               elixir-ls
             ];
+
+            gleam = with pkgs; [
+              gleam
+            ];
           };
         };
 
@@ -123,6 +127,10 @@
           elixir = with pkgs; [
             # mix format
             elixir
+          ];
+
+          gleam = with pkgs; [
+            gleam
           ];
         };
       };
@@ -250,6 +258,7 @@
             go = true;
 
             elixir = true;
+            gleam = true;
 
             markdown = true;
           };
@@ -291,6 +300,7 @@
             go = true;
 
             elixir = true;
+            gleam = true;
 
             markdown = true;
           };

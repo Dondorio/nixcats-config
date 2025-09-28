@@ -38,5 +38,6 @@ vim.lsp.enable("gopls")
 
 -- BEAM
 vim.lsp.enable("elixirls")
+vim.lsp.enable("gleam")
 
 require("conf.plugins")
