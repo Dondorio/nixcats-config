@@ -29,7 +29,6 @@ return {
 				-- Extra
 				bash = { "prettierd" },
 				scss = { "prettierd" },
-				yuck = { "" },
 
 				-- Document
 				-- TODO markdown and toml formatters

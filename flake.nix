@@ -119,6 +119,11 @@
             go-tools
             gotools
           ];
+
+          elixir = with pkgs; [
+            # mix format
+            elixir
+          ];
         };
       };
 

@@ -70,9 +70,14 @@ return {
 
 				keymap = {
 					preset = "default",
-					["<tab>"] = { "select_next", "fallback" },
-					["<S-tab>"] = { "select_prev", "fallback" },
+					["<Down>"] = { "select_next", "fallback" },
+					["<C-d>"] = { "select_next", "fallback" },
+
+					["<Up>"] = { "select_prev", "fallback" },
+					["<C-u>"] = { "select_prev", "fallback" },
+
 					["<CR>"] = { "accept", "fallback" },
+					["<C-e>"] = { "accept", "fallback" },
 				},
 
 				sources = {
