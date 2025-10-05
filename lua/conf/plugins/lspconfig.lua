@@ -13,13 +13,13 @@ return {
 	},
 	keys = {
 		{ "<leader>la", vim.lsp.buf.code_action, desc = "Code action" },
-		{ "<leader>ln", vim.lsp.buf.rename, desc = "Rename" },
+		{ "gn", vim.lsp.buf.rename, desc = "Rename" },
 		{ "<leader>lr", vim.lsp.buf.references, desc = "References", nowait = true },
 
-		{ "<leader>lgd", vim.lsp.buf.definition, desc = "Goto Definition" },
-		{ "<leader>lgD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
-		{ "<leader>lgy", vim.lsp.buf.type_definition, desc = "Goto Type Definition" },
-		{ "<leader>lgI", vim.lsp.buf.implementation, desc = "Goto Implementation" },
+		{ "gd", vim.lsp.buf.definition, desc = "Goto Definition" },
+		{ "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
+		{ "gY", vim.lsp.buf.type_definition, desc = "Goto Type Definition" },
+		{ "gI", vim.lsp.buf.implementation, desc = "Goto Implementation" },
 	},
 	on_require = { "lspconfig" },
 }
