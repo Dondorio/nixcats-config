@@ -23,13 +23,23 @@ return {
 				go = { "golangci-lint" },
 				rust = { "rustfmt" },
 
-				-- BEAM
+				-- Beam
 				elixir = { "mix" },
 				gleam = { "gleam" },
 
+				-- Web
+				html = { "prettierd" },
+
+				css = { "prettierd" },
+				scss = { "prettierd" },
+
+				javascript = { "prettierd" },
+				typescript = { "prettierd" },
+
+				svelte = { "prettierd" },
+
 				-- Extra
 				bash = { "prettierd" },
-				scss = { "prettierd" },
 
 				-- Document
 				-- TODO markdown and toml formatters

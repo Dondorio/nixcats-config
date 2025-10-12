@@ -12,6 +12,10 @@ return {
 
 			elixir = { "credo" },
 
+			-- Web
+			javascript = { "eslint_d" },
+			typescript = { "eslint_d" },
+
 			-- Extra
 			markdown = { "vale" },
 		}

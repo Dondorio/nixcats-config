@@ -36,8 +36,20 @@ vim.lsp.enable("nixd")
 vim.lsp.enable("clangd")
 vim.lsp.enable("gopls")
 
--- BEAM
+-- Beam
 vim.lsp.enable("elixirls")
 vim.lsp.enable("gleam")
+
+-- Web
+vim.lsp.enable("html")
+vim.lsp.enable("emmet_ls")
+
+vim.lsp.enable("cssls")
+vim.lsp.enable("stylelint_lsp")
+vim.lsp.enable("tailwindcss")
+
+vim.lsp.enable("ts_ls")
+
+vim.lsp.enable("svelte")
 
 require("conf.plugins")

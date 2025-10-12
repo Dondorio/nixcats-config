@@ -7,7 +7,6 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     nixCats,
     ...
@@ -43,95 +42,84 @@
       lspsAndRuntimeDeps = {
         general = with pkgs; [
           kdlfmt
+          lldb
           ripgrep
           vscode-extensions.vadimcn.vscode-lldb.adapter
-          lldb
         ];
 
         lsp = {
           langs = {
-            lua = with pkgs; [
-              lua-language-server
-            ];
+            lua = [pkgs.lua-language-server];
 
             nix = with pkgs; [
               nil
               nixd
             ];
 
-            rust = with pkgs; [
-              rust-analyzer
-            ];
+            rust = [pkgs.rust-analyzer];
 
-            cpp = with pkgs; [
-              clang-tools
-            ];
+            cpp = [pkgs.clang-tools];
 
-            go = with pkgs; [
-              gopls
-            ];
+            go = [pkgs.gopls];
 
-            elixir = with pkgs; [
-              elixir-ls
-            ];
+            # Beam
+            elixir = [pkgs.elixir-ls];
 
-            gleam = with pkgs; [
-              gleam
-            ];
+            gleam = [pkgs.gleam];
+
+            web = {
+              general = with pkgs; [
+                emmet-ls
+                tailwindcss-language-server
+                typescript-language-server
+                vscode-css-languageserver
+              ];
+
+              svelte = [pkgs.svelte-language-server];
+            };
           };
         };
 
         lint = {
           langs = {
-            lua = with pkgs; [
-              lua54Packages.luacheck
-            ];
+            lua = [pkgs.lua54Packages.luacheck];
 
             nix = with pkgs; [
               deadnix
               statix
             ];
 
-            rust = with pkgs; [
-              clippy
-            ];
+            rust = [pkgs.clippy];
 
-            go = with pkgs; [
-              golangci-lint
-            ];
+            go = [pkgs.golangci-lint];
+
+            web = {
+              general = with pkgs; [
+                eslint_d
+                stylelint-lsp
+              ];
+            };
           };
         };
 
         format = {
-          always = with pkgs; [
-            prettierd
-          ];
+          always = [pkgs.prettierd];
 
-          lua = with pkgs; [
-            stylua
-          ];
+          lua = [pkgs.stylua];
 
-          nix = with pkgs; [
-            alejandra
-          ];
+          nix = [pkgs.alejandra];
 
-          rust = with pkgs; [
-            rustfmt
-          ];
+          rust = [pkgs.rustfmt];
 
           go = with pkgs; [
             go-tools
             gotools
           ];
 
-          elixir = with pkgs; [
-            # mix format
-            elixir
-          ];
+          # Beam
+          elixir = [pkgs.elixir];
 
-          gleam = with pkgs; [
-            gleam
-          ];
+          gleam = [pkgs.gleam];
         };
       };
 
@@ -252,13 +240,18 @@
 
             java = false;
 
-            # TODO
             c = true;
             cpp = true;
             go = true;
 
+            # Beam
             elixir = true;
             gleam = true;
+
+            web = {
+              general = true;
+              svelte = true;
+            };
 
             markdown = true;
           };
@@ -299,8 +292,15 @@
             cpp = true;
             go = true;
 
+            # Beam
             elixir = true;
             gleam = true;
+
+            # Web
+            web = {
+              general = true;
+              svelte = true;
+            };
 
             markdown = true;
           };
