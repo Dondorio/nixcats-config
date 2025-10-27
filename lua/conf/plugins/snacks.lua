@@ -1,6 +1,5 @@
 require("snacks").setup({
 	-- dashboard = {},
-	animate = {},
 	bigfile = {},
 	explorer = {},
 	gitbrowse = {},
@@ -11,7 +10,6 @@ require("snacks").setup({
 	picker = {},
 	rename = {},
 	scope = {},
-	scroll = {},
 
 	indent = {
 		priority = 1000,
