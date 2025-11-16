@@ -21,6 +21,7 @@ return {
 				c = { "clang-format" },
 				cpp = { "clang-format" },
 				go = { "golangci-lint" },
+				ocaml = { "ocamlformat" },
 				rust = { "rustfmt" },
 
 				-- Beam

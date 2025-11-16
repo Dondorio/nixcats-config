@@ -82,3 +82,15 @@ end, { desc = "Open gitui in git root" })
 vim.keymap.set("n", "<leader>uC", function()
 	Snacks.picker.colorschemes()
 end, { desc = "Colourschemes" })
+
+vim.keymap.set("n", "<leader>.", function()
+	Snacks.scratch()
+end, { desc = "Toggle Scratch Buffer" })
+
+vim.keymap.set("n", "<leader>S", function()
+	Snacks.scratch.select()
+end, { desc = "Select Scratch Buffer" })
+
+vim.keymap.set("n", "<leader>dps", function()
+	Snacks.profiler.scratch()
+end, { desc = "Profiler Scratch Buffer" })

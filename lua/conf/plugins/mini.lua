@@ -14,7 +14,6 @@ return {
 		require("mini.icons").setup()
 		require("mini.move").setup()
 		require("mini.operators").setup()
-		require("mini.pairs").setup()
 		require("mini.splitjoin").setup()
 
 		require("mini.basics").setup({
@@ -35,6 +34,11 @@ return {
 				basic = true,
 				relnum_in_visual_mode = false,
 			},
+		})
+
+		require("mini.pairs").setup({
+			markdown = true,
+			skip_unbalanced = true,
 		})
 
 		local minihp = require("mini.hipatterns")
