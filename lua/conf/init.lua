@@ -36,6 +36,8 @@ vim.lsp.enable("nixd")
 vim.lsp.enable("clangd")
 vim.lsp.enable("gopls")
 vim.lsp.enable("ocamllsp")
+vim.lsp.enable("basedpyright")
+vim.lsp.enable("zls")
 
 -- Beam
 vim.lsp.enable("elixirls")

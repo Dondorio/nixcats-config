@@ -9,6 +9,8 @@ return {
 			c = { "clangtidy" },
 			cpp = { "clangtidy" },
 			go = { "golangcilint" },
+			python = { "ruff" },
+			zig = { "zlint" },
 
 			elixir = { "credo" },
 

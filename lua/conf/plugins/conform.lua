@@ -23,6 +23,8 @@ return {
 				go = { "golangci-lint" },
 				ocaml = { "ocamlformat" },
 				rust = { "rustfmt" },
+				python = { "ruff" },
+				zig = { "zigfmt" },
 
 				-- Beam
 				elixir = { "mix" },

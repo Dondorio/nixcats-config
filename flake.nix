@@ -52,6 +52,10 @@
 
             ocaml = [pkgs.ocamlPackages.ocaml-lsp];
 
+            python = [pkgs.pyright];
+
+            zig = [pkgs.zls];
+
             # Beam
             elixir = [pkgs.elixir-ls];
 
@@ -83,6 +87,10 @@
 
             go = [pkgs.golangci-lint];
 
+            python = [pkgs.ruff];
+
+            zig = [pkgs.zig-zlint];
+
             web = {
               general = with pkgs; [
                 eslint_d
@@ -107,6 +115,10 @@
           ];
 
           ocaml = [pkgs.ocamlPackages.ocamlformat];
+
+          python = [pkgs.ruff];
+
+          zig = [pkgs.zls];
 
           # Beam
           elixir = [pkgs.elixir];
