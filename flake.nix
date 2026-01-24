@@ -18,13 +18,9 @@
       allowUnfree = true;
     };
 
-    dependencyOverlays =
-      /*
-      (import ./overlays inputs) ++
-      */
-      [
-        (utils.standardPluginOverlay inputs)
-      ];
+    dependencyOverlays = [
+      (utils.standardPluginOverlay inputs)
+    ];
 
     categoryDefinitions = {pkgs, ...}: {
       lspsAndRuntimeDeps = {
@@ -76,7 +72,7 @@
 
         lint = {
           langs = {
-            lua = [pkgs.lua54Packages.luacheck];
+            lua = [pkgs.selene];
 
             nix = with pkgs; [
               deadnix

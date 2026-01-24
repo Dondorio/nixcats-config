@@ -3,7 +3,7 @@ return {
 	for_cat = { cat = "general", default = true },
 	after = function()
 		require("lint").linters_by_ft = {
-			lua = { "luacheck" },
+			lua = { "selene" },
 			nix = { "statix", "deadnix" },
 
 			c = { "clangtidy" },
