@@ -52,6 +52,8 @@
 
             zig = [pkgs.zls];
 
+            haskell = [pkgs.haskellPackages.haskell-language-server];
+
             # Beam
             elixir = [pkgs.elixir-ls];
 
@@ -87,6 +89,8 @@
 
             zig = [pkgs.zig-zlint];
 
+            haskell = [pkgs.hlint];
+
             web = {
               general = with pkgs; [
                 eslint_d
@@ -115,6 +119,8 @@
           python = [pkgs.ruff];
 
           zig = [pkgs.zls];
+
+          haskell = [pkgs.ormolu];
 
           # Beam
           elixir = [pkgs.elixir];
@@ -244,6 +250,7 @@
             cpp = true;
             go = true;
             ocaml = true;
+            haskell = true;
 
             # Beam
             elixir = true;
@@ -293,6 +300,7 @@
             cpp = true;
             go = true;
             ocaml = true;
+            haskell = true;
 
             # Beam
             elixir = true;

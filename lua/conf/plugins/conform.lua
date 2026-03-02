@@ -25,9 +25,9 @@ return {
 				rust = { "rustfmt" },
 				python = { "ruff" },
 				zig = { "zigfmt" },
+				haskell = { "ormolu" },
 
 				-- Beam
-				elixir = { "mix" },
 				gleam = { "gleam" },
 
 				-- Web

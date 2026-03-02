@@ -11,6 +11,7 @@ return {
 			go = { "golangcilint" },
 			python = { "ruff" },
 			zig = { "zlint" },
+			haskell = { "hlint" },
 
 			elixir = { "credo" },
 
