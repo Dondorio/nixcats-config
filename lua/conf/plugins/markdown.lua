@@ -5,7 +5,7 @@ return {
 			cat = "general",
 			default = true,
 		},
-		ft = "markdown",
+		ft = { "markdown" },
 		after = function()
 			require("render-markdown").setup({})
 		end,

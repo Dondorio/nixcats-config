@@ -5,7 +5,7 @@ return {
 			cat = "general",
 			default = true,
 		},
-		ft = "rust",
+		ft = { "rust" },
 		after = function()
 			local bufnr = vim.api.nvim_get_current_buf()
 			vim.keymap.set(

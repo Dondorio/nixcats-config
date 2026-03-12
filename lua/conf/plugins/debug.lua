@@ -25,7 +25,6 @@ return {
 				"nvim-dap-virtual-text",
 			})
 		end,
-
 		after = function()
 			local dap = require("dap")
 			local dapui = require("dapui")
@@ -102,6 +101,7 @@ return {
 				all_references = false,
 				clear_on_continue = false,
 
+				---@diagnostic disable-next-line: unused-local
 				display_callback = function(variable, _buf, _stackframe, _node, options)
 					if options.virt_text_pos == "inline" then
 						return " = " .. variable.value

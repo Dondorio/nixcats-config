@@ -2,9 +2,13 @@ return {
 	{
 		"noice.nvim",
 		for_cat = "general",
-		event = "DeferredUIEnter",
+		event = { "DeferredUIEnter" },
 		after = function()
-			require("noice").setup({})
+			require("noice").setup({
+				notify = {
+					enabled = false,
+				},
+			})
 		end,
 	},
 }

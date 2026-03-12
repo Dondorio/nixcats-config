@@ -4,11 +4,16 @@ return {
 		cat = "format",
 		default = true,
 	},
-	-- keys = {
-	-- 	-- Create a key mapping and lazy-load when it is used
-	-- 	{ "<leader>gf", mode = { "n", "x", "o" }, "<cmd>AutoFormatDisable<CR>", desc = "Disable auto formatting" },
-	-- },
-	event = { "DeferredUIEnter" },
+	keys = {
+		{ "\\f", mode = { "n", "x", "o" }, "<cmd>AutoFormatToggle<CR>", desc = "Disable auto formatting" },
+		{
+			"\\F",
+			mode = { "n", "x", "o" },
+			"<cmd>AutoFormatToggle!<CR>",
+			desc = "Disable auto formatting in the current buffer",
+		},
+	},
+	event = { "BufWritePre" },
 	after = function()
 		vim.b.disable_autoformat = false
 		vim.g.disable_autoformat = false
@@ -48,10 +53,6 @@ return {
 				-- TODO markdown and toml formatters
 				kdl = { "kdlfmt" },
 
-				-- Use the "*" filetype to run formatters on all filetypes.
-				-- ["*"] = { "codespell" },
-				-- Use the "_" filetype to run formatters on filetypes that don't
-				-- have other formatters configured.
 				["_"] = { "trim_whitespace" },
 			},
 			format_on_save = function(bufnr)
@@ -63,9 +64,8 @@ return {
 			end,
 		})
 
-		vim.api.nvim_create_user_command("FormatDisable", function(args)
+		vim.api.nvim_create_user_command("AutoFormatDisable", function(args)
 			if args.bang then
-				-- FormatDisable! will disable formatting just for this buffer
 				vim.b.disable_autoformat = true
 			else
 				vim.g.disable_autoformat = true
@@ -74,11 +74,22 @@ return {
 			desc = "Disable autoformat-on-save",
 			bang = true,
 		})
-		vim.api.nvim_create_user_command("FormatEnable", function()
+		vim.api.nvim_create_user_command("AutoFormatEnable", function()
 			vim.b.disable_autoformat = false
 			vim.g.disable_autoformat = false
 		end, {
 			desc = "Re-enable autoformat-on-save",
+		})
+
+		vim.api.nvim_create_user_command("AutoFormatToggle", function(args)
+			if args.bang then
+				vim.b.disable_autoformat = not vim.b.disable_autoformat
+			else
+				vim.g.disable_autoformat = not vim.g.disable_autoformat
+			end
+		end, {
+			desc = "Toggle autoformat-on-save",
+			bang = true,
 		})
 	end,
 }

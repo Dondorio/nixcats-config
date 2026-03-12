@@ -48,7 +48,7 @@
 
             ocaml = [pkgs.ocamlPackages.ocaml-lsp];
 
-            python = [pkgs.pyright];
+            python = [pkgs.basedpyright];
 
             zig = [pkgs.zls];
 
@@ -195,6 +195,7 @@
             which-key-nvim
 
             nvim-ufo
+            ssr-nvim
           ];
 
           debug = with pkgs.vimPlugins; [
@@ -322,7 +323,7 @@
 
           themes = true;
 
-          colorscheme = "catppuccin";
+          colorscheme = "kanagawa";
         };
         extra = {};
       };

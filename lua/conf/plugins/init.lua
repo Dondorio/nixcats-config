@@ -1,19 +1,13 @@
-local colorschemeName = nixCats("colorscheme")
-if not require("nixCatsUtils").isNixCats then
-	colorschemeName = "catppuccin"
-end
-vim.cmd.colorscheme(colorschemeName)
-
-require("conf.plugins.snacks")
-require("conf.plugins.oil")
-
 require("lze").load({
 	{ import = "conf.plugins.treesitter" },
+	{ import = "conf.plugins.ssr" },
 
 	-- General utility
-	-- { import = "conf.plugins.snacks" },
 	{ import = "conf.plugins.mini" },
+	{ import = "conf.plugins.oil" },
+	{ import = "conf.plugins.snacks" },
 
+	-- UI
 	{ import = "conf.plugins.markdown" },
 	{ import = "conf.plugins.trouble" },
 	{ import = "conf.plugins.ufo" },

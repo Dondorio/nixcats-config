@@ -4,7 +4,8 @@ return {
 		cat = "general",
 		default = true,
 	},
-	event = "DeferredUIEnter",
+	event = { "UIEnter" },
+	priority = 1000,
 	after = function()
 		require("lualine").setup({
 			options = {

@@ -1,8 +1,10 @@
 return {
 	{
 		"bufferline.nvim",
-		for_cat = "general",
-		event = "DeferredUIEnter",
+		for_cat = {
+			cat = "general",
+			default = true,
+		},
 		after = function()
 			require("bufferline").setup({
 				options = {

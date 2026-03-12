@@ -22,6 +22,12 @@ vim.opt.signcolumn = "yes"
 
 vim.opt.colorcolumn = "80"
 
+local colorschemeName = nixCats("colorscheme")
+if not require("nixCatsUtils").isNixCats then
+	colorschemeName = "kanagawa"
+end
+vim.cmd.colorscheme(colorschemeName)
+
 require("lze").register_handlers(require("nixCatsUtils.lzUtils").for_cat)
 require("lze").register_handlers(require("lzextras").lsp)
 

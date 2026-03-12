@@ -2,7 +2,7 @@ return {
 	{
 		"which-key.nvim",
 		for_cat = "general",
-		event = "DeferredUIEnter",
+		event = { "DeferredUIEnter" },
 		after = function()
 			require("which-key").setup({})
 			require("which-key").add({

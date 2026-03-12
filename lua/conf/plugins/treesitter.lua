@@ -2,12 +2,13 @@ return {
 	{
 		"nvim-treesitter",
 		for_cat = "general.treesitter",
-		event = "DeferredUIEnter",
+		event = { "DeferredUIEnter" },
 		load = function(name)
 			vim.cmd.packadd(name)
 			vim.cmd.packadd("nvim-treesitter-textobjects")
 		end,
-		after = function(plugin)
+		after = function()
+			---@diagnostic disable-next-line: missing-fields
 			require("nvim-treesitter.configs").setup({
 				highlight = {
 					enable = true,
@@ -76,7 +77,7 @@ return {
 	{
 		"nvim-treesitter-context",
 		for_cat = "general.treesitter",
-		event = "DeferredUIEnter",
+		event = { "DeferredUIEnter" },
 		after = function()
 			require("treesitter-context").setup({
 				enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)

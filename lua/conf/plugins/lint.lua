@@ -1,6 +1,7 @@
 return {
 	"nvim-lint",
 	for_cat = { cat = "general", default = true },
+	event = { "BufWritePre" },
 	after = function()
 		require("lint").linters_by_ft = {
 			lua = { "selene" },

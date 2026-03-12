@@ -1,8 +1,11 @@
 return {
 	{
 		"tiny-inline-diagnostic.nvim",
-		for_cat = "general",
-		event = "BufEnter",
+		for_cat = {
+			cat = "general",
+			default = true,
+		},
+		event = { "BufEnter" },
 		priority = 1000,
 		after = function()
 			require("tiny-inline-diagnostic").setup({
@@ -12,32 +15,35 @@ return {
 				-- "ghost", "simple", "nonerdfont", "amongus"
 				preset = "modern",
 
-				show_source = {
-					enabled = true,
-					if_many = false,
-				},
+				options = {
+					add_messages = {
+						display_count = true,
+					},
 
-				multilines = {
-					-- Enable multiline diagnostic messages
-					enabled = true,
+					break_line = {
+						enabled = true,
+						after = 80,
+					},
 
-					-- Always show messages on all lines for multiline diagnostics
-					always_show = true,
+					multilines = {
+						-- Enable multiline diagnostic messages
+						enabled = true,
 
-					-- Trim whitespaces from the start/end of each line
-					trim_whitespaces = false,
+						-- Always show messages on all lines for multiline diagnostics
+						always_show = true,
 
-					-- Replace tabs with spaces in multiline diagnostics
-					tabstop = 4,
-				},
+						-- Trim whitespaces from the start/end of each line
+						trim_whitespaces = false,
 
-				-- Configuration for breaking long messages into separate lines
-				break_line = {
-					-- Enable the feature to break messages after a specific length
-					enabled = true,
+						-- Replace tabs with spaces in multiline diagnostics
+						tabstop = 4,
+					},
 
-					-- Number of characters after which to break the line
-					after = 50,
+					show_code = true,
+					show_source = {
+						enabled = true,
+						if_many = false,
+					},
 				},
 			})
 			vim.diagnostic.config({ virtual_lines = false })
