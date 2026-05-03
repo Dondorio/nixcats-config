@@ -54,6 +54,8 @@
 
             haskell = [pkgs.haskellPackages.haskell-language-server];
 
+            java = [pkgs.jdt-language-server];
+
             # Beam
             elixir = [pkgs.elixir-ls];
 
@@ -245,7 +247,7 @@
             nix = true;
             rust = true;
 
-            java = false;
+            java = true;
 
             c = true;
             cpp = true;
@@ -295,7 +297,7 @@
             nix = true;
             rust = true;
 
-            java = false;
+            java = true;
 
             c = true;
             cpp = true;

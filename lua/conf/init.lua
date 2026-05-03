@@ -45,6 +45,7 @@ vim.lsp.enable("ocamllsp")
 vim.lsp.enable("basedpyright")
 vim.lsp.enable("zls")
 vim.lsp.enable("hls")
+vim.lsp.enable("jdtls")
 
 -- Beam
 vim.lsp.enable("elixirls")
