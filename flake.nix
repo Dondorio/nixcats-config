@@ -57,7 +57,7 @@
             java = [pkgs.jdt-language-server];
 
             # Beam
-            elixir = [pkgs.elixir-ls];
+            elixir = [pkgs.beam28Packages.expert];
 
             gleam = [pkgs.gleam];
 

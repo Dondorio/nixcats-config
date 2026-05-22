@@ -48,7 +48,7 @@ vim.lsp.enable("hls")
 vim.lsp.enable("jdtls")
 
 -- Beam
-vim.lsp.enable("elixirls")
+vim.lsp.enable("expert")
 vim.lsp.enable("gleam")
 
 -- Web

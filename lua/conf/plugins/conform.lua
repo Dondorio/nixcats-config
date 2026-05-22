@@ -33,6 +33,7 @@ return {
 				haskell = { "ormolu" },
 
 				-- Beam
+				elixir = { "lsp" },
 				gleam = { "gleam" },
 
 				-- Web
