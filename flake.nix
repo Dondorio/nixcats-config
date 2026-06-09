@@ -59,7 +59,7 @@
             # Beam
             elixir = [pkgs.beam28Packages.expert];
 
-            gleam = [pkgs.gleam];
+            # gleam = [pkgs.gleam];
 
             web = {
               general = with pkgs; [
@@ -127,7 +127,7 @@
           # Beam
           elixir = [pkgs.elixir];
 
-          gleam = [pkgs.gleam];
+          # gleam = [pkgs.gleam];
         };
       };
 
