@@ -257,7 +257,7 @@
 
             # Beam
             elixir = true;
-            gleam = true;
+            gleam = false;
 
             web = {
               general = true;
@@ -307,7 +307,7 @@
 
             # Beam
             elixir = true;
-            gleam = true;
+            gleam = false;
 
             # Web
             web = {
