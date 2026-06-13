@@ -12,7 +12,7 @@ return {
 		"LspRestart",
 	},
 	keys = {
-		{ "<leader>la", mode = {"n", "v"} vim.lsp.buf.code_action, desc = "Code action" },
+		{ "<leader>la", mode = { "n", "v" }, vim.lsp.buf.code_action, desc = "Code action" },
 		{ "gn", vim.lsp.buf.rename, desc = "Rename" },
 		{ "<leader>lr", vim.lsp.buf.references, desc = "References", nowait = true },
 
